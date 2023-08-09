@@ -65,7 +65,8 @@ def get_beau_with_sel(URL):
 
         # driver = webdriver.Chrome(ChromeDriverManager().install())
 
-        driver = webdriver.Chrome(chrome_options=options,executable_path="C:/Scraping/chromedriver.exe")
+        #driver = webdriver.Chrome(chrome_options=options,executable_path="C:/Scraping/chromedriver.exe")
+        driver = webdriver.Chrome(chrome_options=options,executable_path="chromedriver.exe")
 
         driver.get(URL)
         # driver.maximize_window()
