@@ -1,3 +1,5 @@
 suds
 openpyxl
 xlsxwriter 
+selenium
+bs4
