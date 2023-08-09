@@ -3,3 +3,4 @@ openpyxl
 xlsxwriter 
 selenium
 bs4
+webdriver-manager
