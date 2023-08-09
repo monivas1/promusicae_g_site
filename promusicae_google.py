@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Aug  9 12:53:50 2023
-
-@author: User
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Fri Oct 22 13:23:56 2021
 
 @author: User
@@ -37,12 +30,12 @@ from pathlib import Path
 from suds.client import Client
 from datetime import datetime
 
-st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
+#st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
 
 
 st.write(
     """
-# ?? PROMUSICAE Búsqueda de canciones en google
+# PROMUSICAE Búsqueda de canciones en google
 Subir fichero "XLSX" con los las canciones a buscar en página "Hoja1 y según formato indicado".
 """
 )
