@@ -12,14 +12,11 @@ Created on Fri Oct 22 13:23:56 2021
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-from webdriver_manager.firefox import GeckoDriverManager
+
+
 import time
 
 from bs4 import BeautifulSoup
@@ -94,53 +91,33 @@ def get_beau_with_sel(URL):
  
     return soup
 
-def get_beau_with_sel_FF(URL):
+def get_beau_with_selbase(URL):
     try:
-        
-        TIMEOUT = 20
-        XPATH = "//*[@class='ui-mainview-block eventpath-wrapper']"
 
-        # options = Options()
-        # options.binary_location = "C:/Program Files/Google/Chrome/Application/chrome.exe"
-        # options.add_argument("--headless") 
-        # options.add_argument('--no-sandbox') # Bypass OS security model
+        options = Options()
+        options.add_argument('--disable-gpu')
+        options.add_argument('--headless')
 
-        # driver = webdriver.Chrome(chrome_options=options,executable_path="C:/Scraping/chromedriver.exe")
-
-        firefoxOptions = Options()
-        firefoxOptions.add_argument("--headless")
-        service = Service(GeckoDriverManager().install())
-        driver = webdriver.Firefox(
-            options=firefoxOptions,
-            service=service,
-        )
-
+        driver = get_driver()
         driver.get(URL)
-        try:
-            WebDriverWait(driver, TIMEOUT).until(
-                EC.visibility_of_element_located((By.XPATH, XPATH,))
-            )
-        
-        except TimeoutException:
-            # st.warning("Timed out waiting for page to load")
-            driver.quit()
-        
-        time.sleep(10)
-        elements = driver.find_elements_by_xpath(XPATH)
-        # st.write([el.text for el in elements])
-        driver.quit()
 
         source = driver.page_source
 
         
         soup = BeautifulSoup(source, "lxml")
 
+        driver.quit()
+        
     except AttributeError:
         webpage = requests.get(URL, headers=HEADERS)
      
         soup = BeautifulSoup(webpage.content, "lxml")
  
     return soup
+
+def get_driver():
+        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
 
 if (os.path.isfile('resultados_google.csv')):
     os.remove('resultados_google.csv')
@@ -210,7 +187,7 @@ if uploaded_file:
                 # # Soup Object containing all data
                 # soup = BeautifulSoup(webpage.content, "lxml")
                 #soup=get_beau_with_sel(URL2)
-                soup=get_beau_with_sel_FF(URL2)
+                soup=get_beau_with_selbase(URL2)
              
                 # Fetch links as List of Tag Objects
                 # links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
