@@ -141,7 +141,7 @@ if uploaded_file:
             for num_web in range(num_webs):
                 num_start=num_web*10
                 url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + str(num_start)
-                st.write(f'Página: "{num_start+1}"')
+                st.write(f'Página: "{num_web+1}"')
 
 
                 contador_web=contador_web+1
@@ -198,7 +198,13 @@ if uploaded_file:
         df_escrito=pd.read_csv('resultados_google.csv',sep=';',encoding='latin1')
         df_escrito.to_excel(new_file_name_xlsx,index= True, index_label= 'IndexLabel' )
         file_x=df_escrito.to_excel(new_file_name_xlsx,index= True, index_label= 'IndexLabel' )
-        st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
+        # st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
+        st.download_button(
+                label="📥 Bajar los resultados actuales en EXCEL'",
+                data=output.getvalue(),
+                file_name=new_file_name_xlsx,
+                mime="application/vnd.ms-excel"
+)
     except Exception :
         st.write("Debido a un problema de tipos no es posible generar el fichero en MS Excel.")
 
