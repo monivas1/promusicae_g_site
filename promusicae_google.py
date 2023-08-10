@@ -114,6 +114,9 @@ contador_prod=0
 uploaded_file = st.file_uploader("Upload Excel", type=".xlsx")
 
 if uploaded_file:
+    options = Options()
+    options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
 
     
     df = pd.read_excel(uploaded_file, sheet_name='Hoja1')
