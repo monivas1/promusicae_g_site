@@ -71,9 +71,9 @@ def get_beau_with_selbase(URL):
 
         source = driver.page_source
 
-        st.code(driver.page_source)
+       
         soup = BeautifulSoup(source, "lxml")
-
+        st.write(soup)
         driver.quit()
         
  #   except AttributeError:
