@@ -74,13 +74,13 @@ def get_beau_with_selbase(URL):
        
         soup = BeautifulSoup(source, "lxml")
         driver.quit()
+        return soup
         
  #   except AttributeError:
  #       webpage = requests.get(URL, headers=HEADERS)
  #    
  #       soup = BeautifulSoup(webpage.content, "lxml")
  #
- #   return soup
 
 
 if (os.path.isfile('resultados_google.csv')):
