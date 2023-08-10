@@ -195,16 +195,16 @@ if uploaded_file:
     file_w.close()          
     
     #try:
-        df_escrito=pd.read_csv('resultados_google.csv',sep=';',encoding='latin1')
-        df_escrito.to_excel(new_file_name_xlsx,index= True, index_label= 'IndexLabel' )
-        file_x=open(new_file_name_xlsx)
+    df_escrito=pd.read_csv('resultados_google.csv',sep=';',encoding='latin1')
+    df_escrito.to_excel(new_file_name_xlsx,index= True, index_label= 'IndexLabel' )
+    file_x=open(new_file_name_xlsx)
         # st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
-        st.download_button(
+    st.download_button(
                 label="📥 Bajar los resultados actuales en EXCEL'",
                 data=file_x,
                 file_name=new_file_name_xlsx,
                 mime="application/vnd.ms-excel")
-        file_w.close()
+    file_w.close()
     #except Exception :
     #    st.write("Debido a un problema de tipos no es posible generar el fichero en MS Excel.")
 
