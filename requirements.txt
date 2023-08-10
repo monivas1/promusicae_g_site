@@ -1,6 +1,7 @@
 suds
 openpyxl
 xlsxwriter 
-selenium
 bs4
 webdriver-manager
+streamlit
+seleniumbase
