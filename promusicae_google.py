@@ -31,12 +31,12 @@ from pathlib import Path
 from suds.client import Client
 from datetime import datetime
 
-#st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
+st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
 
 
 st.write(
     """
-# PROMUSICAE Búsqueda de canciones en google
+# 📊 PROMUSICAE Búsqueda de canciones en google
 Subir fichero "XLSX" con los las canciones a buscar en página "Hoja1 y según formato indicado".
 """
 )
@@ -128,7 +128,7 @@ if uploaded_file:
             num_webs=df['num_web'][i]
             
             # st.write(f'Artist: "{artist}" Track: "{track}"')
-            st.write(f'Artist: "{artist}" Track: "{track}"')
+            st.write(f'Artist: "{artist}" | Track: "{track}"')
             # myvies=myvies[2:-3]
             # st.write(myvies)
             # myvies=myvies.strip(' \n')
@@ -178,7 +178,7 @@ if uploaded_file:
                     
                 for link in links_list:
                     contador_prod=contador_prod+1
-                    st.write(f"Web analizada: {contador_web}| enlace: {contador_prod} | artista: {artist} | subject: {track}   ")
+                    # st.write(f"Web analizada: {contador_web}| enlace: {contador_prod} | artista: {artist} | subject: {track}   ")
                     with open ('resultados_google.csv', 'a', encoding="utf-8") as file:
                        file.write(f'"{contador_prod}";')
                        file.write(f'"{artist}";')
@@ -191,13 +191,13 @@ if uploaded_file:
     
     file_w = open("resultados_google.csv",encoding='latin1')
 
-    st.download_button(label='?? Bajar los resultados actuales en CSV',data=file_w, file_name=new_file_name_csv )                    
+    st.download_button(label='📥 Bajar los resultados actuales en CSV',data=file_w, file_name=new_file_name_csv )                    
     file_w.close()          
     
     try:
         df_escrito=pd.read_csv('resultados_google.csv',sep=';',encoding='latin1')
         file_x=to_excel(df_escrito)
-        st.download_button(label='?? Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
+        st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
     except Exception :
         st.write("Debido a un problema de tipos no es posible generar el fichero en MS Excel.")
 
