@@ -71,7 +71,7 @@ def get_beau_with_selbase(URL):
 
         source = driver.page_source
 
-        
+        st.code(driver.page_source)
         soup = BeautifulSoup(source, "lxml")
 
         driver.quit()
@@ -155,6 +155,7 @@ if uploaded_file:
                 # # Soup Object containing all data
                 # soup = BeautifulSoup(webpage.content, "lxml")
                 #soup=get_beau_with_sel(URL2)
+                
                 soup=get_beau_with_selbase(URL2)
              
                 # Fetch links as List of Tag Objects
