@@ -201,7 +201,7 @@ if uploaded_file:
         # st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
         st.download_button(
                 label="📥 Bajar los resultados actuales en EXCEL'",
-                data=output.getvalue(),
+                data=file_x,
                 file_name=new_file_name_xlsx,
                 mime="application/vnd.ms-excel"
 )
