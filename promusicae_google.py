@@ -9,6 +9,7 @@ Created on Fri Oct 22 13:23:56 2021
 # txt = "ATU10592107"
 
 
+from bs4 import BeautifulSoup
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -16,14 +17,9 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-
 import time
-
-from bs4 import BeautifulSoup
 import requests
-
 import os.path
-
 
 # from random import randint
 
