@@ -70,7 +70,7 @@ def get_beau_with_selbase(URL):
         driver.get(URL)
 
         source = driver.page_source
-
+        st.code(source)
        
         soup = BeautifulSoup(source, "lxml")
         
