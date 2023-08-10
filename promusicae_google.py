@@ -195,7 +195,7 @@ if uploaded_file:
     file_w.close()          
     
     #try:
-    df_escrito=pd.read_csv('resultados_google.csv',sep=';',encoding='latin1')
+    df_escrito=pd.read_csv('resultados_google.csv',sep=';',encoding='utf-8')
     df_escrito.to_excel(new_file_name_xlsx,index= True, index_label= 'IndexLabel' )
     file_x=open(new_file_name_xlsx)
         # st.download_button(label='📥 Bajar los resultados actuales en EXCEL',data=file_x, file_name=new_file_name_xlsx)   
