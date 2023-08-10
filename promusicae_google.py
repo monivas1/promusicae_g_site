@@ -59,37 +59,9 @@ def to_excel(df):
     processed_data = output.getvalue()
     return processed_data
 
-def get_beau_with_sel(URL):
-    try:
-        options = Options()
-        options.binary_location = "C:/Program Files/Google/Chrome/Application/chrome.exe"
-        options.add_argument("--headless") 
-        options.add_argument('--no-sandbox') # Bypass OS security model
 
-        # driver = webdriver.Chrome(chrome_options=options, executable_path="C:/Utility/BrowserDrivers/chromedriver.exe", )
-
-        # driver = webdriver.Chrome(ChromeDriverManager().install())
-
-        #driver = webdriver.Chrome(chrome_options=options,executable_path="C:/Scraping/chromedriver.exe")
-        driver = webdriver.Chrome(chrome_options=options,executable_path="chromedriver.exe")
-
-        driver.get(URL)
-        # driver.maximize_window()
-        
-        # source = driver.find_element_by_xpath('//div[@class="_1KRklrtnaQVWD-N2ldQ9d3"]')
-        source = driver.page_source
-
-        
-        soup = BeautifulSoup(source, "lxml")
-
-        driver.quit()
-        
-    except AttributeError:
-        webpage = requests.get(URL, headers=HEADERS)
-     
-        soup = BeautifulSoup(webpage.content, "lxml")
- 
-    return soup
+def get_driver():
+        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 def get_beau_with_selbase(URL):
     try:
@@ -114,9 +86,6 @@ def get_beau_with_selbase(URL):
         soup = BeautifulSoup(webpage.content, "lxml")
  
     return soup
-
-def get_driver():
-        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
 if (os.path.isfile('resultados_google.csv')):
