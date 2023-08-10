@@ -157,7 +157,7 @@ if uploaded_file:
                 #soup=get_beau_with_sel(URL2)
                 soup=get_beau_with_selbase(URL2)
 
-                st.write(soup)
+                st.code(soup)
              
                 # Fetch links as List of Tag Objects
                 # links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
