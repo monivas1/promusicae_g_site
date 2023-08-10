@@ -64,7 +64,7 @@ def get_driver():
         return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 def get_beau_with_selbase(URL):
-    try:
+#    try:
 
         options = Options()
         options.add_argument('--disable-gpu')
@@ -80,12 +80,12 @@ def get_beau_with_selbase(URL):
 
         driver.quit()
         
-    except AttributeError:
-        webpage = requests.get(URL, headers=HEADERS)
-     
-        soup = BeautifulSoup(webpage.content, "lxml")
- 
-    return soup
+ #   except AttributeError:
+ #       webpage = requests.get(URL, headers=HEADERS)
+ #    
+ #       soup = BeautifulSoup(webpage.content, "lxml")
+ #
+ #   return soup
 
 
 if (os.path.isfile('resultados_google.csv')):
