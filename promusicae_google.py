@@ -73,7 +73,7 @@ def get_beau_with_selbase(URL):
 
        
         soup = BeautifulSoup(source, "lxml")
-        st.write(soup)
+        #st.write(soup)
         driver.quit()
         
  #   except AttributeError:
@@ -155,7 +155,7 @@ if uploaded_file:
                 # # Soup Object containing all data
                 # soup = BeautifulSoup(webpage.content, "lxml")
                 #soup=get_beau_with_sel(URL2)
-                
+                st.write(URL2)
                 soup=get_beau_with_selbase(URL2)
              
                 # Fetch links as List of Tag Objects
