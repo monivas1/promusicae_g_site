@@ -128,7 +128,7 @@ if uploaded_file:
             num_webs=df['num_web'][i]
             
             # st.write(f'Artist: "{artist}" Track: "{track}"')
-            print(f'Artist: "{artist}" Track: "{track}"')
+            st.write(f'Artist: "{artist}" Track: "{track}"')
             # myvies=myvies[2:-3]
             # st.write(myvies)
             # myvies=myvies.strip(' \n')
@@ -156,7 +156,7 @@ if uploaded_file:
                 #soup=get_beau_with_sel(URL2)
                 soup=get_beau_with_selbase(URL2)
 
-                st.code(soup)
+                # st.code(soup)
              
                 # Fetch links as List of Tag Objects
                 # links = soup.find_all("a", attrs={'class':'a-link-normal s-no-outline'})
@@ -178,7 +178,7 @@ if uploaded_file:
                     
                 for link in links_list:
                     contador_prod=contador_prod+1
-                    print(f"Web analizada: {contador_web} enlace: {contador_prod}")
+                    st.write(f"Web analizada: {contador_web}| enlace: {contador_prod} | artista: {artist} | subject: {track}   ")
                     with open ('resultados_google.csv', 'a', encoding="utf-8") as file:
                        file.write(f'"{contador_prod}";')
                        file.write(f'"{artist}";')
