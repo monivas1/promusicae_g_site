@@ -41,8 +41,8 @@ st.sidebar.markdown(
         unsafe_allow_html=True,
     )
 
-    st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
-    st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del Fraude.")
+st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
+st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del Fraude.")
 
 st.write(
     """
