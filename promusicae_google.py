@@ -35,12 +35,11 @@ st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wi
 st.sidebar.markdown(
         f"""
         <div style="display:table;margin-top:-20%;margin-left:20%;">
-            <img src="romusicae-jpg" width="100" height="150">
+            <img src="promusicae.jpg" width="100" height="150">
         </div>
         """,
         unsafe_allow_html=True,
     )
-
 st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
 st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del Fraude.")
 
