@@ -40,6 +40,7 @@ st.sidebar.markdown(
         """,
         unsafe_allow_html=True,
     )
+st.sidebar.image("promusicae.jpg", use_column_width=True)
 st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
 st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del Fraude.")
 
