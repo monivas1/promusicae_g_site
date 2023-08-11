@@ -32,14 +32,7 @@ from suds.client import Client
 from datetime import datetime
 
 st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
-st.sidebar.markdown(
-        f"""
-        <div style="display:table;margin-top:-20%;margin-left:20%;">
-            <img src="promusicae.jpg" width="100" height="150">
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+
 st.sidebar.image("promusicae.jpg", use_column_width=True)
 st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
 st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del Fraude.")
