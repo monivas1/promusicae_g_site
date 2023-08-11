@@ -32,12 +32,22 @@ from suds.client import Client
 from datetime import datetime
 
 st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
+st.sidebar.markdown(
+        f"""
+        <div style="display:table;margin-top:-20%;margin-left:20%;">
+            <img src="romusicae-jpg" width="100" height="150">
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
+    st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
+    st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del Fraude.")
 
 st.write(
     """
 # 📊 PROMUSICAE Búsqueda de canciones en google
-Subir fichero "XLSX" con los las canciones a buscar en página "Hoja1 y según formato indicado".
+Subir fichero "XLSX" con el repertorio en página "Hoja1 y según formato indicado".
 """
 )
 
