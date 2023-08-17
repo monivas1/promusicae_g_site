@@ -159,6 +159,7 @@ if uploaded_file:
                 # num_start=num_web*10
                 # url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + str(num_start)
                 url_busqueda=web
+                num_web=+1
                 st.write(f'Página: "{num_web+1}"')
 
 
@@ -187,7 +188,7 @@ if uploaded_file:
                     if "translate" in link.get('href') or "search?" in link.get('href') :
                     #     if "https://translate.google.com/translate?hl=es&sl=en&u="  in link.get('href') :
                     #         links_list.append(link.get('href').replace("https://translate.google.com/translate?hl=es&sl=en&u=",""))
-                        st.write("No se muestra " + link.get('href') )
+                        print("No se muestra " + link.get('href') )
                     else:
                           links_list.append(link.get('href'))
                     # links_list.append(link.get('data-ved'))
