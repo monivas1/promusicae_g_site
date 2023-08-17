@@ -141,9 +141,24 @@ if uploaded_file:
             except Exception :
                 texto_busqueda=""
             url_busqueda=""
-            for num_web in range(num_webs):
-                num_start=num_web*10
-                url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + str(num_start)
+            url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + "00"
+            URL2 = url_busqueda
+         
+            soup=get_beau_with_sel(URL2)
+         
+            google_pages = soup.find_all("a", attrs={'class':'fl'})
+            google_pages_list=[]
+            google_pages_list.append(url_busqueda)
+            for google_page in google_pages:
+                if "/search?q=" in google_page.get('href') :
+                    google_pages_list.append("https://www.google.com" + google_page.get('href'))
+            
+            
+            # for num_web in range(num_webs):
+            for web in google_pages_list:
+                # num_start=num_web*10
+                # url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + str(num_start)
+                url_busqueda=web
                 st.write(f'Página: "{num_web+1}"')
 
 
