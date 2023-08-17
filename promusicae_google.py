@@ -184,11 +184,12 @@ if uploaded_file:
                 # Loop for extracting links from Tag Objects
                 links_list=[]
                 for link in links:
-                    if not "/search?" in link.get('href') :
-                        if "https://translate.google.com/translate?hl=es&sl=en&u="  in link.get('href') :
-                            links_list.append(link.get('href').replace("https://translate.google.com/translate?hl=es&sl=en&u=",""))
-                        else:
-                            links_list.append(link.get('href'))
+                    if "translate" in link.get('href') or "search?" in link.get('href') :
+                    #     if "https://translate.google.com/translate?hl=es&sl=en&u="  in link.get('href') :
+                    #         links_list.append(link.get('href').replace("https://translate.google.com/translate?hl=es&sl=en&u=",""))
+                        st.write("No se muestra " + link.get('href') )
+                    else:
+                          links_list.append(link.get('href'))
                     # links_list.append(link.get('data-ved'))
             
                     
