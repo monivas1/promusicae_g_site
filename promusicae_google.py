@@ -153,7 +153,7 @@ if uploaded_file:
                 if "/search?q=" in google_page.get('href') :
                     google_pages_list.append("https://www.google.com" + google_page.get('href'))
             
-            
+            num_web=0
             # for num_web in range(num_webs):
             for web in google_pages_list:
                 # num_start=num_web*10
