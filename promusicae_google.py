@@ -130,7 +130,7 @@ if uploaded_file:
     artists=[]
     for i in range(0,len(df)):
         if str(df['site'][i])!="":
-            sites.add(str(df[''][i]))
+            sites.add(str(df['site'][i]))
             st.write(f'Site {i}: {sites[i]}')
         if str(df['artist'][i])!="":
             artists.add(str(df['artist'][i]))
