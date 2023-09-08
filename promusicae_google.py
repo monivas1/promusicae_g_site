@@ -31,7 +31,7 @@ from pathlib import Path
 from suds.client import Client
 from datetime import datetime
 
-st.set_page_config(page_title="PROMUSICAE",page_icon="promusicae.ico",layout="wide")
+st.set_page_config(page_title="Google Site:",page_icon="promusicae.ico",layout="wide")
 
 st.sidebar.image("promusicae.jpg", use_column_width=True)
 st.sidebar.header("Herramienta para búsquedas de repertorio en Google.")
@@ -39,7 +39,7 @@ st.sidebar.markdown("Departamento de Seguridad, Investigación y Prevención del
 
 st.write(
     """
-# 📊 PROMUSICAE Búsqueda de canciones en google
+# 📊 PROMUSICAE Búsqueda de canciones en google POR SITEs
 Subir fichero "XLSX" con el repertorio en página "Hoja1 y según formato indicado".
 """
 )
@@ -125,11 +125,19 @@ if uploaded_file:
     new_file_name_csv=file_name + "_" + str(now.year) + str(now.month) + str(now.day) + "_" + str(now.hour) +str(now.minute) + ".csv"
     new_file_name_xlsx=file_name + "_" + str(now.year) + str(now.month) + str(now.day) + "_" + str(int(now.hour)*100 +int(now.minute)) + ".xlsx"
 
+
+    sites=[]
+    artists=[]
     for i in range(0,len(df)):
-            artist=df['artist'][i]
-            track=df['track'][i]
-            num_webs=df['num_web'][i]
-            
+        if str(df['site'][i])<>"":
+            sites.add(str(df[''][i]))
+            st.write(f'Site {i}: {sites[i]}')
+        if str(df['artist'][i])<>"":
+            artists.add(str(df['artist'][i]))
+            st.write(f'Artist {i}: {artist[i]}')
+        
+    for site in sites:
+        for artist in artists:
             st.write(f'Artist: "{artist}" | Track: "{track}"')
             # myvies=myvies[2:-3]
             # st.write(myvies)
