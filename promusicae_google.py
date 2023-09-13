@@ -134,7 +134,7 @@ if uploaded_file:
             st.write(f'Site {i}: {sites[i]}')
         if str(df['artist'][i])!="nan":
             artists.append(df['artist'][i])
-            st.write(f'Artist {i}: {artist[i]}')
+            st.write(f'Artist {i}: {artists[i]}')
         
     for site in sites:
         for artist in artists:
