@@ -129,23 +129,20 @@ if uploaded_file:
     sites=[]
     artists=[]
     for i in range(0,len(df)):
-        if str(df['site'][i])!="":
-            sites.add(str(df['site'][i]))
+        if str(df['site'][i])!="nan" :
+            sites.append(str(df['site'][i]))
             st.write(f'Site {i}: {sites[i]}')
-        if str(df['artist'][i])!="":
-            artists.add(str(df['artist'][i]))
+        if str(df['artist'][i])!="nan":
+            artists.append(df['artist'][i])
             st.write(f'Artist {i}: {artist[i]}')
         
     for site in sites:
         for artist in artists:
-            st.write(f'Artist: "{artist}" | Track: "{track}"')
-            # myvies=myvies[2:-3]
-            # st.write(myvies)
-            # myvies=myvies.strip(' \n')
-            # st.write(myvies)
+            print(f'Artist: "{site}" | Track: "{artist}"')
+            
             try:
                 
-                texto_busqueda=artist.replace(" ","+") + "+" + track.replace(" ","+") +"+descarga"
+                texto_busqueda ='"site:' + site + '"+' + artist.replace(" ","+") + '+descargar' 
             except Exception :
                 texto_busqueda=""
             url_busqueda=""
