@@ -179,8 +179,7 @@ if uploaded_file:
                 url_busqueda=web
                 num_web=num_web+1
 #                st.write(f'Página: "{num_web}" Artist: "{site}" | Track: "{artist}"')
-                st.write(f'Página: {num_web}')
-
+                st.write(f'Página: "{num_web}"')
 
                 contador_web=contador_web+1
                 # main(links)    
