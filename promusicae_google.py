@@ -178,7 +178,7 @@ if uploaded_file:
                 # url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + str(num_start)
                 url_busqueda=web
                 num_web=num_web+1
-                st.write(f'Página: "{num_web}"')
+                st.write(f'Página: "{num_web}" Artist: "{site}" | Track: "{artist}"')
 
 
                 contador_web=contador_web+1
@@ -206,7 +206,7 @@ if uploaded_file:
                 for link in links:
                     if site in link.get('href'):
                         links_list.append(link.get('href'))
-                        print("No se muestra " + link.get('href') )
+                        #print("Link Correcto " + link.get('href') )
                 # Loop for extracting product details from each link 
                     
                 for link in links_list:
