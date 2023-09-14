@@ -140,11 +140,8 @@ if uploaded_file:
         for artist in artists:
             print(f'Artist: "{site}" | Track: "{artist}"')
             
-            try:
-                
-                texto_busqueda ='"site:' + site + '"+' + artist.replace(" ","+") + '+descargar' 
-            except Exception :
-                texto_busqueda=""
+            texto_busqueda='"site:' + site + '"+' + artist.replace(" ","+") + '+descargar' 
+            
             url_busqueda=""
             url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + "00"
             URL2 = url_busqueda
@@ -190,24 +187,18 @@ if uploaded_file:
                 # Loop for extracting links from Tag Objects
                 links_list=[]
                 for link in links:
-                    if "translate" in link.get('href') or "search?" in link.get('href') :
-                    #     if "https://translate.google.com/translate?hl=es&sl=en&u="  in link.get('href') :
-                    #         links_list.append(link.get('href').replace("https://translate.google.com/translate?hl=es&sl=en&u=",""))
+                    if site in link.get('href'):
+                        links_list.append(link.get('href'))
                         print("No se muestra " + link.get('href') )
-                    else:
-                          links_list.append(link.get('href'))
-                    # links_list.append(link.get('data-ved'))
-            
-                    
                 # Loop for extracting product details from each link 
                     
                 for link in links_list:
                     contador_prod=contador_prod+1
-                    # st.write(f"Web analizada: {contador_web}| enlace: {contador_prod} | artista: {artist} | subject: {track}   ")
+                    # print(f"Web analizada: {contador_web}| enlace: {contador_prod} | artista: {artist} | subject: {track}   ")
                     with open ('resultados_google.csv', 'a', encoding="utf-8") as file:
                        file.write(f'"{contador_prod}";')
+                       file.write(f'"{site}";')
                        file.write(f'"{artist}";')
-                       file.write(f'"{track}";')
                        file.write(f'"{link}";')
                        file.write("\n")
         
