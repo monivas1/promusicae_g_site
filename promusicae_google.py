@@ -178,7 +178,8 @@ if uploaded_file:
                 # url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + str(num_start)
                 url_busqueda=web
                 num_web=num_web+1
-                st.write(f'Página: "{num_web}" Artist: "{site}" | Track: "{artist}"')
+#                st.write(f'Página: "{num_web}" Artist: "{site}" | Track: "{artist}"')
+                st.write(f'Página: {num_web}')
 
 
                 contador_web=contador_web+1
