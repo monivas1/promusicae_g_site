@@ -59,8 +59,8 @@ def to_excel(df):
     return processed_data
 
 
-def get_driver():
-        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+#def get_driver():
+#        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 def get_beau_with_selbase(URL):
 #    try:
