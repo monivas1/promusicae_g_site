@@ -162,7 +162,7 @@ if uploaded_file:
             url_busqueda="https://www.google.com/search?q=" + texto_busqueda + "&rlz=1C1RXQR_esES953ES953&sxsrf=AB5stBhQqY8seU3ChhccIYxk8sMEqNsoGA:1691481666902&ei=QvbRZJPiMcOjkwX_yrHABA&start=" + "00"
             URL2 = url_busqueda
          
-            soup=get_beau_with_selbase(URL2)
+            soup=get_driver_new_sel(URL2)
          
             google_pages = soup.find_all("a", attrs={'class':'fl'})
             google_pages_list=[]
