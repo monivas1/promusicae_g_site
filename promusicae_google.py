@@ -58,6 +58,22 @@ def to_excel(df):
     processed_data = output.getvalue()
     return processed_data
 
+def get_driver_new_sel(URL2):
+        options = Options()
+#        options.binary_location = "C:/Program Files/Google/Chrome/Application/chrome.exe"
+        options.add_argument("--headless") 
+        options.add_argument('--no-sandbox') # Bypass OS security model
+
+        driver = webdriver.Chrome(options)
+ #       driver = webdriver.Chrome(chrome_options=options,executable_path="C:/Scraping/chromedriver.exe")
+
+        driver.get(URL2)
+        # driver.implicitly_wait(5)
+
+        source = driver.page_source
+        soup = BeautifulSoup(source, "lxml")
+        driver.quit()
+        return soup
 
 def get_driver():
         return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -175,7 +191,8 @@ if uploaded_file:
                 # # Soup Object containing all data
                 # soup = BeautifulSoup(webpage.content, "lxml")
                 #soup=get_beau_with_sel(URL2)
-                soup=get_beau_with_selbase(URL2)
+                #soup=get_beau_with_selbase(URL2)
+                soup=get_driver_new_sel(URL2)
 
                 # st.code(soup)
              
